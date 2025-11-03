@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="grid-container">
+    <header class="cabecera">
+        <h1>Bienvenido a tu pueblo. Contrata, organiza y construye</h1>
+    </header>
+
+    <main class="cuerpo">
+        <button id="construccion">🏡</button>
+
+        <section class="ayuntamiento" id="ayuntamiento" >
+            <p>Este es el ayuntamiento, aquí puedes gestionar el pueblo</p>
+            <button>🌽Construir granero</button>
+            <button>🪓Construir aserradero</button>
+            
+        </section>
+
+    </main >
+    <aside class="lateral">
+        <div class="botonConstruir">
+            
+             <div class="textoRaton">
+                <button id="construir">🏡Construir</button>
+            <span class="textoFlotante">Construir el ayuntamiento cuesta 100 de piedra</span>
+            </div>
+        </div>
+        <div class="botonPiedra">
+            
+            
+             
+            <div class="textoRaton">
+                <button id="agregarCampesinoPiedra">👤➕Añade campesinos a la mina</button>
+                <span class="textoFlotante">Cada campesino pica 1 piedra por segundo</span>
+            </div>
+           <div class="textoRaton">
+                <button id="restarCampesinoPiedra">👤➖Resta campesinos de la mina</button>
+                <span class="textoFlotante"></span>
+            </div>
+            <img src="https://img.freepik.com/vector-gratis/monton-piedras-sobre-fondo-blanco_1308-75201.jpg" style="padding-top: 10px; width: 20px;" alt="">
+            <p id="piedra"></p>
+        </div>
+        
+        <div class="botonCampesino">
+            <div class="textoRaton">
+            <button id="crearCampesino">👤➕Contratar campesino</button>
+            <span class="textoFlotante">cada campesino cuesta 25 vivieres</span>
+        </div>
+        </div>
+        <p id="campesinado">👤 Consigue tu primer campesino, tienes 0 campesinos</p>
+        <!--<img src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_1280.png" alt="" class="imgSumar">-->
+        <div class="textoRaton">
+        <button id="agregarCampesinosViveres">👤➕Agregar campesinos a los campos</button>
+        <span class="textoFlotante">cada campesino produce 1 por segundo </span>
+        </div>
+        <button id="restarCampesinosViveres">👤➖Restar campesinos de los campos</button>
+        <p id="viveres"></p>
+
+
+       
+    </aside>
+    </div>
+
+    <footer class="pie">© 2025 Tu Pueblo</footer>
+    <script src="script.js"></script>
+</body>
+</html>

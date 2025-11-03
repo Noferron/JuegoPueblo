@@ -1,0 +1,89 @@
+
+.grid-container {
+  display: grid;
+  grid-template-areas:
+    "header header header"
+    "aside main main"
+    "aside main main"
+    "footer footer footer";
+  grid-template-columns: 15rem auto auto;
+  grid-template-rows: auto 1fr auto auto;
+  min-height: 100vh;
+}
+
+.cabecera { grid-area: header; }
+.cuerpo { grid-area: main; 
+display: flex;
+align-items: flex-start;}
+.lateral { grid-area: aside;
+background-color:rgba(233, 193, 144, 0.884) ;
+padding: 1rem;
+
+}
+.pie { grid-area: footer; }
+
+#construccion{
+    display: none;
+    font-size: 10rem;
+    border-style: none;
+    background: none;
+}
+
+.ayuntamiento{
+    display:none;
+    
+    
+}
+body{
+    background-image: url("https://tse4.mm.bing.net/th/id/OIP.7H7EwLs9SzronIBt_yv28QHaEW?rs=1&pid=ImgDetMain&o=7&rm=3");
+    background-repeat: no-repeat;
+    background-size: cover;  
+}
+
+.botonPiedra{
+    display:inline;
+}
+#piedra{
+    display:inline;
+}
+.imgSumar{
+    padding-top: 10px; 
+    width: 20px;
+    height: 20px;
+}
+
+button{
+    background-color: rgba(163, 122, 71, 0.685);
+    border-style:dotted;
+    border-radius: 1rem ;
+    display: flex;
+    margin-bottom: 0.4rem;
+}
+
+button:hover{
+    transform:translateY(-0.2rem);
+    background-color:rgba(163, 122, 71, 0.884) ;
+}
+.textoRaton {
+  position: relative;
+  display: inline-block;
+}
+.textoFlotante {
+  visibility: hidden;
+  background-color: rgb(158, 156, 156);
+  color: #fff;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+
+  position: absolute;
+  z-index: 1;
+  top: 100%; /* encima del botón */
+  left: 150%;
+  transform: translateX(-60%);
+  white-space: nowrap;
+}
+
+.textoRaton:hover .textoFlotante {
+  visibility: visible;
+}
