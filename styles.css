@@ -28,7 +28,18 @@ padding: 1rem;
     border-style: none;
     background: none;
 }
-
+#graneroConstruido{
+  display: none;
+  font-size: 10rem;
+  border-style: none;
+  background: none;
+}
+#canteraConstruida{
+  display: none;
+  font-size: 10rem;
+  border-style: none;
+  background: none;
+}
 .ayuntamiento{
     display:none;
     

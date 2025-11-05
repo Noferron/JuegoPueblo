@@ -17,8 +17,15 @@
 
         <section class="ayuntamiento" id="ayuntamiento" >
             <p>Este es el ayuntamiento, aquí puedes gestionar el pueblo</p>
-            <button>🌽Construir granero</button>
-            <button>🪓Construir aserradero</button>
+            
+            <div class="textoRaton"><button id="granero">🌽Construir granero</button><span class="textoFlotante">Construir el granero cuesta 200 de piedra y 150 viveres</span>
+            </div>
+            <div class="textoRaton"><button>🪓Construir aserradero</button><span class="textoFlotante">Construir el aserradero cuesta 180 de piedra y 300 viveres</span>
+            </div>
+            <div class="textoRaton"><button id="cantera">⛏Construir cantera</button><span class="textoFlotante">Construir la cantera cuesta 450 de piedra y 600 viveres</span>
+            </div>
+            <p id="graneroConstruido">🌽</p>
+            <p id="canteraConstruida">⛏</p>
             
         </section>
 
@@ -36,13 +43,16 @@
             
              
             <div class="textoRaton">
+                
                 <button id="agregarCampesinoPiedra">👤➕Añade campesinos a la mina</button>
                 <span class="textoFlotante">Cada campesino pica 1 piedra por segundo</span>
             </div>
+
            <div class="textoRaton">
                 <button id="restarCampesinoPiedra">👤➖Resta campesinos de la mina</button>
                 <span class="textoFlotante"></span>
             </div>
+            <p id="campesinoTrabajandoPiedra"></p>
             <img src="https://img.freepik.com/vector-gratis/monton-piedras-sobre-fondo-blanco_1308-75201.jpg" style="padding-top: 10px; width: 20px;" alt="">
             <p id="piedra"></p>
         </div>
@@ -54,6 +64,7 @@
         </div>
         </div>
         <p id="campesinado">👤 Consigue tu primer campesino, tienes 0 campesinos</p>
+        
         <!--<img src="https://cdn.pixabay.com/photo/2014/04/02/10/41/button-304224_1280.png" alt="" class="imgSumar">-->
         <div class="textoRaton">
         <button id="agregarCampesinosViveres">👤➕Agregar campesinos a los campos</button>
@@ -61,6 +72,7 @@
         </div>
         <button id="restarCampesinosViveres">👤➖Restar campesinos de los campos</button>
         <p id="viveres"></p>
+        <p id="campesinoTrabajandoCampo"></p>
 
 
        

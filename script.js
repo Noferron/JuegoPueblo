@@ -1,4 +1,4 @@
-let contadorPiedra = 0;
+let contadorPiedra = 600;
 let campesino =0;
 let piedra = document.getElementById("piedra");
 
@@ -7,17 +7,21 @@ let piedra = document.getElementById("piedra");
 const campesinado=document.getElementById("campesinado");
 const crearCampesino = document.getElementById("crearCampesino");
 const viveres = document.getElementById("viveres");
-
+const campesinoTrabajandoPiedra=document.getElementById("campesinoTrabajandoPiedra")
 
 crearCampesino.addEventListener("click",()=>{
     
-    if(contadorViveres>20){
+    if(contadorViveres>20 && campesino<20){
             campesino=campesino +1;
             contadorViveres -=20;
             campesinado.textContent = "👤Campesinos: " + campesino;
             viveres.textContent = "🍖Viveres: " + contadorViveres;
             
         }
+    else if(campesino>=20){
+        campesinado.innerHTML=`<div class="textoRaton"><p>👤Alcanzaste el número máximo de campesinos</p><span class="textoFlotante">Sube de nivel el ayuntamiento para poder contratar más</span>
+            </div>`
+    }
 });
     
 let agregarCampesinoPiedra=document.getElementById("agregarCampesinoPiedra");
@@ -30,7 +34,8 @@ agregarCampesinoPiedra.addEventListener("click",()=>{
     if(campesino>0){
     campesinoPiedra += 1;
     campesino = campesino - 1;
-    campesinado.textContent = "👤Campesinos: " + campesino;
+    campesinado.textContent = `👤Campesinos:${campesino}`;
+    campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
     }
 });
 
@@ -43,19 +48,26 @@ restarCampesinoPiedra.addEventListener("click",()=>{
     campesino += 1;
     campesinado.textContent = "👤Campesinos: " + campesino;
     console.log(campesinoPiedra);
+    campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
     }
 
 });
 
 setInterval(()=>{
-    if(campesinoPiedra>0){
-    contadorPiedra += campesinoPiedra;
-    piedra.textContent = "Piedra:" + contadorPiedra;
+    
+    if(campesinoPiedra>0 && contadorPiedra<500){
+        contadorPiedra += campesinoPiedra;
+        piedra.textContent = "Piedra:" + contadorPiedra;
+    }
+    else if(campesinoPiedra>0 && cantera==true && contadorPiedra<1500){
+        contadorPiedra += campesinoPiedra;
+        piedra.textContent = "Piedra:" + contadorPiedra;
     }
     else if(campesinoPiedra==0){
         contadorPiedra;
         piedra.textContent = "Piedra:" + contadorPiedra;
     }
+    
     
 },1000);
 
@@ -70,12 +82,13 @@ construir.addEventListener("click",()=>{
 
 //-------------Conseguir vivires---------------
 const agregarCampesinosViveres =document.getElementById("agregarCampesinosViveres");
-let contadorViveres=150;
+let contadorViveres=1500;
 agregarCampesinosViveres.addEventListener("click",()=>{
     if(campesino>0){
     campesinoViveres += 1;
     campesino = campesino - 1;
     campesinado.textContent = "👤Campesinos: " + campesino;
+    campesinoTrabajandoCampo.textContent="👤🌽Agricultores:" + campesinoViveres;
     }
 });
 
@@ -88,6 +101,7 @@ restarCampesinosViveres.addEventListener("click",()=>{
     campesino += 1;
     campesinado.textContent = "👤Campesinos: " + campesino;
     console.log(campesinoViveres);
+    campesinoTrabajandoCampo.textContent="👤🌽Agricultores:" + campesinoViveres;
     }
 
 });
@@ -110,4 +124,31 @@ let construccion = document.getElementById("construccion");
 construccion.addEventListener("click",()=>{
 
         document.getElementById("ayuntamiento").style.display="block";
+});
+
+//------------Construir el granero-------------------
+let granero = document.getElementById("granero");
+
+granero.addEventListener("click",()=>{
+    if(contadorPiedra>200 && contadorViveres>150){
+        document.getElementById("graneroConstruido").style.display="block";
+        contadorPiedra=contadorPiedra-200;
+        contadorViveres-=150;
+        granero.style.display="none";
+
+
+    }
+});
+
+//-------------Construir cantera----------------------
+
+let cantera = document.getElementById("cantera");
+
+cantera.addEventListener("click",()=>{
+    if(contadorPiedra>450 && contadorViveres>=600){
+        document.getElementById("canteraConstruida").style.display="block";
+        contadorPiedra=contadorPiedra-450;
+        contadorViveres-=600;
+        cantera.style.display="none";
+    }
 });
