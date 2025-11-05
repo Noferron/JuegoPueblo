@@ -55,11 +55,11 @@ restarCampesinoPiedra.addEventListener("click",()=>{
 
 setInterval(()=>{
     
-    if(campesinoPiedra>0 && contadorPiedra<500){
+    if(campesinoPiedra>0 && contadorPiedra<500 && construccionCantera){
         contadorPiedra += campesinoPiedra;
         piedra.textContent = "Piedra:" + contadorPiedra;
     }
-    else if(campesinoPiedra>0 && cantera==true && contadorPiedra<1500){
+    else if(campesinoPiedra>0 && construccionCantera && contadorPiedra<1500){
         contadorPiedra += campesinoPiedra;
         piedra.textContent = "Piedra:" + contadorPiedra;
     }
@@ -143,6 +143,7 @@ granero.addEventListener("click",()=>{
 //-------------Construir cantera----------------------
 
 let cantera = document.getElementById("cantera");
+let construccionCantera = false;
 
 cantera.addEventListener("click",()=>{
     if(contadorPiedra>450 && contadorViveres>=600){
@@ -150,5 +151,6 @@ cantera.addEventListener("click",()=>{
         contadorPiedra=contadorPiedra-450;
         contadorViveres-=600;
         cantera.style.display="none";
+        construccionCantera=true;
     }
 });
