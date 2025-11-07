@@ -1,3 +1,5 @@
+window.addEventListener("DOMContentLoaded", () => {
+
 let contadorPiedra = 600;
 let campesino =0;
 let piedra = document.getElementById("piedra");
@@ -59,7 +61,7 @@ setInterval(()=>{
         contadorPiedra += campesinoPiedra;
         piedra.textContent = "Piedra:" + contadorPiedra;
     }
-    else if(campesinoPiedra>0 && construccionCantera && contadorPiedra<1500){
+    else if(campesinoPiedra>0 && construccionCantera==true && contadorPiedra<1500){
         contadorPiedra += campesinoPiedra;
         piedra.textContent = "Piedra:" + contadorPiedra;
     }
@@ -68,6 +70,7 @@ setInterval(()=>{
         piedra.textContent = "Piedra:" + contadorPiedra;
     }
     
+    hospital();
     
 },1000);
 
@@ -153,4 +156,50 @@ cantera.addEventListener("click",()=>{
         cantera.style.display="none";
         construccionCantera=true;
     }
+});
+
+//--------------Hospital--------------------------------
+let hospitalizado=document.getElementById("hospitalizado");
+let campesinoEnfermo =0;
+
+
+function hospital(){
+    if(Math.random()<0.08 && campesinoPiedra>1){
+        campesinoPiedra -= 1;
+        campesinoEnfermo += 1;
+        hospitalizado.textContent = `🤒Campesinos enfermos: ${campesinoEnfermo}`;
+        campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
+    }
+}
+
+//-------------------Médicos-------------------------------
+//let sanitario =document.getElementById("sanitario");
+let crearMedico = document.getElementById("crearMedico");
+let numeroMedicos=document.getElementById("numeroMedicos");
+let medico=0;
+
+crearMedico.addEventListener("click",()=>{
+    if(contadorViveres>150){
+        contadorViveres-=150;
+        medico+=1;
+        numeroMedicos.textContent = `👨‍⚕️Hay ${medico} trabajando en el hospital`;
+    }
+    
+})
+
+function recuperacion (){
+    if(Math.random()<0.081 && campesinoEnfermo>=1 && medico>=1){
+            campesinoPiedra += 1;
+            campesinoEnfermo -= 1;
+            hospitalizado.textContent = `🤒Campesinos enfermos: ${campesinoEnfermo}`;
+            campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
+        }
+}
+
+setInterval(()=>{
+   recuperacion();
+   console.log("estoy funcionando");
+},1000);
+
+  // tu código aquí
 });

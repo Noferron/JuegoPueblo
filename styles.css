@@ -13,8 +13,9 @@
 
 .cabecera { grid-area: header; }
 .cuerpo { grid-area: main; 
-display: flex;
-align-items: flex-start;}
+
+
+display: grid;}
 .lateral { grid-area: aside;
 background-color:rgba(233, 193, 144, 0.884) ;
 padding: 1rem;
@@ -27,6 +28,17 @@ padding: 1rem;
     font-size: 10rem;
     border-style: none;
     background: none;
+}
+
+.hospital{
+   
+    font-size: 10rem;
+    border-style: none;
+    background: none;
+}
+.sanidad{
+  display: flex;
+  align-items: center;
 }
 #graneroConstruido{
   display: none;
@@ -42,8 +54,18 @@ padding: 1rem;
 }
 .ayuntamiento{
     display:none;
+   
     
     
+}
+dialog {
+  background-color: rgba(233, 193, 144, 0.884);
+  height: 24rem;
+  width: 34rem;
+  scrollbar-width: none;
+}
+dialog::backdrop {
+  background: rgba(233, 193, 144, 0.267);
 }
 body{
     background-image: url("https://tse4.mm.bing.net/th/id/OIP.7H7EwLs9SzronIBt_yv28QHaEW?rs=1&pid=ImgDetMain&o=7&rm=3");

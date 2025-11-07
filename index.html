@@ -13,8 +13,8 @@
     </header>
 
     <main class="cuerpo">
-        <button id="construccion">🏡</button>
-
+        <button onclick="window.modalAyun.showModal();" id="construccion">🏡</button>
+        <dialog id="modalAyun">
         <section class="ayuntamiento" id="ayuntamiento" >
             <p>Este es el ayuntamiento, aquí puedes gestionar el pueblo</p>
             
@@ -26,9 +26,26 @@
             </div>
             <p id="graneroConstruido">🌽</p>
             <p id="canteraConstruida">⛏</p>
+
+            <button onclick="window.modalAyun.close();">Cerrar</button>
+            </dialog>
             
         </section>
+        <section class="sanidad" >
+             <button onclick="window.modal.showModal();" class="hospital">🏥</button>
+              <dialog id="modal"><p id="hospitalizado"> 🥳 No hay campesinos hospitalizados</p>
+              <div class="textoRaton"><button id="crearMedico">Contratar médico</button><span class="textoFlotante">Contratar un médico cuesta 150 viveres</span>
+            </div>
+             <p id="numeroMedicos">No tienes médicos contratados</p>
+             <button onclick="window.modal.close();">Cerrar</button>
+             </dialog>
 
+<!-- <dialog id="modal">
+   <h2>Este es el título de mi ventana modal</h2>
+   <p>Este es un texto de ejemplo dentro de una ventana modal</p>
+   <button onclick="window.modal.close();">Cerrar</button>
+</dialog> -->
+        </section>
     </main >
     <aside class="lateral">
         <div class="botonConstruir">
