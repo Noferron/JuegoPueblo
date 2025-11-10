@@ -11,16 +11,17 @@ const crearCampesino = document.getElementById("crearCampesino");
 const viveres = document.getElementById("viveres");
 const campesinoTrabajandoPiedra=document.getElementById("campesinoTrabajandoPiedra")
 
+
 crearCampesino.addEventListener("click",()=>{
     
-    if(contadorViveres>20 && campesino<20){
+    if(contadorViveres>20 && campesinosTotal<=19){
             campesino=campesino +1;
             contadorViveres -=20;
             campesinado.textContent = "👤Campesinos: " + campesino;
             viveres.textContent = "🍖Viveres: " + contadorViveres;
             
         }
-    else if(campesino>=20){
+    else if(campesinosTotal>=20){
         campesinado.innerHTML=`<div class="textoRaton"><p>👤Alcanzaste el número máximo de campesinos</p><span class="textoFlotante">Sube de nivel el ayuntamiento para poder contratar más</span>
             </div>`
     }
@@ -29,6 +30,7 @@ crearCampesino.addEventListener("click",()=>{
 let agregarCampesinoPiedra=document.getElementById("agregarCampesinoPiedra");
 let campesinoPiedra=0;
 let campesinoViveres=0;
+
 
 //--------Conseguir piedra------------------------
 
@@ -161,15 +163,18 @@ cantera.addEventListener("click",()=>{
 //--------------Hospital--------------------------------
 let hospitalizado=document.getElementById("hospitalizado");
 let campesinoEnfermo =0;
-
+let probabilidadEnfermar = Math.random()<0.08;
 
 function hospital(){
-    if(Math.random()<0.08 && campesinoPiedra>1){
+    
+    
+    if(probabilidadEnfermar && campesinoPiedra>1){
         campesinoPiedra -= 1;
         campesinoEnfermo += 1;
         hospitalizado.textContent = `🤒Campesinos enfermos: ${campesinoEnfermo}`;
         campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
     }
+
 }
 
 //-------------------Médicos-------------------------------
@@ -187,19 +192,40 @@ crearMedico.addEventListener("click",()=>{
     
 })
 
+let probabilidadRecuperacion = Math.random()<0.081;
+
 function recuperacion (){
-    if(Math.random()<0.081 && campesinoEnfermo>=1 && medico>=1){
+    
+
+    if(probabilidadRecuperacion && campesinoEnfermo>=1 && medico>=1){
             campesinoPiedra += 1;
             campesinoEnfermo -= 1;
             hospitalizado.textContent = `🤒Campesinos enfermos: ${campesinoEnfermo}`;
             campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
         }
 }
+let campesinosTotal;
 
 setInterval(()=>{
    recuperacion();
-   console.log("estoy funcionando");
+   campesinosTotal =  campesino + campesinoPiedra +campesinoEnfermo + campesinoViveres + medico;
+console.log(campesinosTotal);
 },1000);
+
+
+//-------------------Taberna-----------------------------
+
+let menosEnfermos = probabilidadEnfermar 
+
+
+
+
+
+
+
+
 
   // tu código aquí
 });
+
+
