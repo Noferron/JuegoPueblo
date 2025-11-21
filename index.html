@@ -33,19 +33,23 @@
             
         </section>
         <section class="sanidad" >
-                <button onclick="window.modal.showModal();" class="hospital">🏥</button>
-                    <dialog id="modal"><p id="hospitalizado"> 🥳 No hay campesinos hospitalizados</p>
+                <button onclick="window.modalHosp.showModal();" class="hospital">🏥</button>
+                    <dialog id="modalHosp"><p id="hospitalizado"> 🥳 No hay campesinos hospitalizados</p>
                         <div class="textoRaton"><button id="crearMedico">Contratar médico</button><span class="textoFlotante">Contratar un médico cuesta 150 viveres</span>
                         </div>
                         <p id="numeroMedicos">No tienes médicos contratados</p>
-                        <button onclick="window.modal.close();">Cerrar</button>
+                        <button onclick="window.modalHosp.close();">Cerrar</button>
                     </dialog>
-
-<!-- <dialog id="modal">
-   <h2>Este es el título de mi ventana modal</h2>
-   <p>Este es un texto de ejemplo dentro de una ventana modal</p>
-   <button onclick="window.modal.close();">Cerrar</button>
-</dialog> -->
+        </section>
+        <section class="fiesta" >
+                <button onclick="window.modalTaber.showModal();" class="taberna">🍻</button>
+                    <dialog id="modalTaber"><p id="borracho"> </p>
+                        <div class="textoRaton">
+                            <button id="crearTabernero">Contratar tabernero</button><span class="textoFlotante">Contratar un tabernero cuesta 250 viveres</span> 
+                        </div>
+                         <p id="numeroTaberneros">No tienes taberneros contratados</p> 
+                        <button onclick="window.modalTaber.close();">Cerrar</button>
+                    </dialog>
         </section>
     </main >
     <aside class="lateral">

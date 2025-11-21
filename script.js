@@ -9,7 +9,8 @@ let piedra = document.getElementById("piedra");
 const campesinado=document.getElementById("campesinado");
 const crearCampesino = document.getElementById("crearCampesino");
 const viveres = document.getElementById("viveres");
-const campesinoTrabajandoPiedra=document.getElementById("campesinoTrabajandoPiedra")
+const campesinoTrabajandoPiedra=document.getElementById("campesinoTrabajandoPiedra");
+let campesinosTotal;
 
 
 crearCampesino.addEventListener("click",()=>{
@@ -73,6 +74,7 @@ setInterval(()=>{
     }
     
     hospital();
+    taberna();
     
 },1000);
 
@@ -204,23 +206,59 @@ function recuperacion (){
             campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
         }
 }
-let campesinosTotal;
 
-setInterval(()=>{
-   recuperacion();
-   campesinosTotal =  campesino + campesinoPiedra +campesinoEnfermo + campesinoViveres + medico;
-console.log(campesinosTotal);
-},1000);
 
 
 //-------------------Taberna-----------------------------
 
-let menosEnfermos = probabilidadEnfermar 
+let menosEnfermos = Math.random()<0.070;
+let borracho=document.getElementById("borracho");
+let campesinoBorracho=0;
+function taberna(){
+    
+    menosEnfermos=probabilidadEnfermar;
+    let probabilidadEmborracharse = Math.random()<0.03;
+    if(probabilidadEmborracharse && campesinoPiedra>=1){
+        campesinoPiedra -= 1;
+        campesinoBorracho += 1;
+        borracho.textContent = `🥴Campesinos borracho: ${campesinoBorracho}`;
+        campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
+    }
+}
+
+//-----------------Tabernero-----------------------------
+let crearTabernero = document.getElementById("crearTabernero");
+let numeroTaberneros=document.getElementById("numeroTaberneros");
+let tabernero=0;
+
+crearTabernero.addEventListener("click",()=>{
+    if(contadorViveres>250){
+        contadorViveres-=250;
+        tabernero+=1;
+        numeroTaberneros.textContent = `👨‍🍳Hay ${tabernero} taberneros`;
+    }
+    
+})
+let probabilidadSobrio = Math.random()<0.081;
+
+function sereno (){
+    
+    if(probabilidadSobrio && campesinoBorracho>=1 && tabernero>=1){
+            campesinoPiedra += 1;
+            campesinoBorracho -= 1;
+            borracho.textContent = `🥴Campesinos borracho: ${campesinoBorracho}`;
+            campesinoTrabajandoPiedra.textContent="👤⛏Mineros:" + campesinoPiedra;
+        }
+}
 
 
 
-
-
+setInterval(()=>{
+   recuperacion();
+   sereno();
+   campesinosTotal =  campesino + campesinoPiedra +campesinoEnfermo + campesinoViveres + medico;
+console.log(campesinosTotal);
+},1000);
 
 
 

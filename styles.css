@@ -41,6 +41,15 @@ padding: 1rem;
   display: flex;
   align-items: center;
 }
+.fiesta{
+  display: flex;
+  align-items: center;
+}
+.taberna{
+  font-size: 10rem;
+  border-style: none;
+  background: none;
+}
 #graneroConstruido{
   display: none;
   font-size: 10rem;
